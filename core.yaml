@@ -201,6 +201,7 @@ sensor:
       #         send_every: 5
     distance:
       name: "Distance"
+      id: distance
       unit_of_measurement: ft
       accuracy_decimals: 1
       filters:
