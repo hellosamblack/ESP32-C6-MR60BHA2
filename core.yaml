@@ -54,8 +54,9 @@ wifi:
   
 captive_portal:
 
+#Ensure that we are not using the native component, it's flaky
 seeed_mr60bha2: !remove
-
+#Rather, use the external one from seeed
 external_components:
   - source:
       type: git
