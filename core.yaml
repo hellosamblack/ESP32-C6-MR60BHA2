@@ -3,8 +3,8 @@ esphome:
   friendly_name: $friendly_name
   name_add_mac_suffix: False
   project:
-    name: "seeedstudio.mr60bha2_kit"
-    version: "2025-02-26-15:08"
+    name: "2025-02-26-15:08 Name"
+    version: "2025-02-26-15:08 Version"
   platformio_options:
     board_upload.maximum_size: 4194304
 
