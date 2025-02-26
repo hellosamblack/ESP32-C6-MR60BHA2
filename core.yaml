@@ -94,6 +94,19 @@ light:
             on_length: 1s
             off_length: 500ms
           update_interval: 1.5s
+      - lambda:
+          name: "Distance Visualization"
+          update_interval: 1s
+          lambda: |-
+            float distance = id(distance).state;
+            float brightness = (distance / 20.0) * 89.0 + 11.0; // Map distance 0-20 to brightness 11-100
+            int red = (int)(255 * (1 - (distance / 20.0))); // Red decreases as distance increases
+            int green = 0;
+            int blue = (int)(255 * (distance / 20.0)); // Blue increases as distance increases
+            auto call = id(led_ring).turn_on();
+            call.set_brightness(brightness / 100.0);
+            call.set_rgb(red / 255.0, green / 255.0, blue / 255.0);
+            call.perform();
 
 i2c:
   sda: GPIO22
