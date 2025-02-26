@@ -103,17 +103,15 @@ seeed_mr60bha2:
 
 binary_sensor:
   - platform: seeed_mr60bha2
+    filters:
+      -delayed_off: 60s
     has_target:
       name: "Person Detected"
       device_class: occupancy
-    filters:
-      -delayed_off: 60s
+
       
 
 sensor:
-
-
-# Example configuration entry with 2 sensors and filter
   - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
     name: "WiFi Signal dB"
     id: wifi_signal_db
