@@ -4,7 +4,7 @@ esphome:
   name_add_mac_suffix: False
   project:
     name: "seeedstudio.mr60bha2_kit"
-    version: "2.0"
+    version: "2025-02-26-15:08"
   platformio_options:
     board_upload.maximum_size: 4194304
 
