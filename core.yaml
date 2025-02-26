@@ -225,12 +225,6 @@ sensor:
       # filters:
       # - delta: 1
 
-  # - platform: copy
-  #   source_id: distance
-  #   name: "Internal Distance"
-  #   id: internal_distance
-  #   internal: false
-
   - platform: debug
     free:
       name: "Heap Free"
