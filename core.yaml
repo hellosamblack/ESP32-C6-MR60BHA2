@@ -2,9 +2,10 @@ esphome:
   name: $name
   friendly_name: $friendly_name
   name_add_mac_suffix: False
-  project:
-    name: "2025-02-26-15:08 Name"
-    version: "2025-02-26-15:08 Version"
+  #This doesn't seem to be surfaced anywhere in the UI
+  # project:
+  #   name: "2025-02-26-15:08 Name"
+  #   version: "2025-02-26-15:08 Version"
   platformio_options:
     board_upload.maximum_size: 4194304
 
@@ -259,4 +260,5 @@ text_sensor:
     reset_reason:
       name: "Reset Reason"
 
-
+  - platform: version
+    name: "ESPHome Version"
