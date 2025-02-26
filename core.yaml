@@ -54,6 +54,8 @@ wifi:
   
 captive_portal:
 
+seeed_mr60bha2: !remove
+
 external_components:
   - source:
       type: git
