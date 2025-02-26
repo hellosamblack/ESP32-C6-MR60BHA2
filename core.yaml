@@ -106,8 +106,8 @@ binary_sensor:
     has_target:
       name: "Person Detected"
       device_class: occupancy
-      filters:
-        -delayed_off: 60s
+    filters:
+      -delayed_off: 60s
       
 
 sensor:
