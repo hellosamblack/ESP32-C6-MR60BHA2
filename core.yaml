@@ -60,7 +60,7 @@ external_components:
       url: https://github.com/limengdu/MR60BHA2_ESPHome_external_components
       ref: main
     components: [ seeed_mr60bha2 ]
-    refresh: 1m
+    refresh: 1min
 
 # For XIAO ESP32C6 Onboard LED
 # light:
