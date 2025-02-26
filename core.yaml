@@ -103,9 +103,9 @@ seeed_mr60bha2:
 
 binary_sensor:
   - platform: seeed_mr60bha2
-    id: person_detected_raw
     has_target:
       name: "Person Detected (Raw)"
+      id: person_detected_raw
       device_class: occupancy
 
   - platform: template
