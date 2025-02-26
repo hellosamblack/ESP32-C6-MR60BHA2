@@ -98,7 +98,7 @@ light:
           name: "Distance Visualization"
           update_interval: 1s
           lambda: |-
-            float distance_var = id(internal_distance).state;
+            float distance_var = id(distance).state;
             float brightness = (distance_var / 20.0) * 89.0 + 11.0; // Map distance 0-20 to brightness 11-100
             int red = (int)(255 * (1 - (distance_var / 20.0))); // Red decreases as distance increases
             int green = (int)(255 * (distance_var / 20.0)); // Green increases as distance increases
