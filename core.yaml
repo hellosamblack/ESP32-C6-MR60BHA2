@@ -101,6 +101,23 @@ uart:
 seeed_mr60bha2:
   id: my_seeed_mr60bha2
 
+binary_sensor:
+  - platform: seeed_mr60bha2
+    has_target:
+      name: "Person Detected (Raw)"
+      id: person_detected_raw
+      device_class: occupancy
+      entity_category: "diagnostic"
+
+  - platform: template
+    id: person_detected
+    name: "Person Detected"
+    device_class: occupancy
+    lambda: |-
+      return id(person_detected_raw).state;
+    filters:
+      - delayed_off: 60s
+    
 sensor:
   - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
     name: "WiFi Signal dB"
@@ -118,6 +135,11 @@ sensor:
     entity_category: "diagnostic"
     device_class: signal_strength
     state_class: measurement
+
+  - platform: uptime
+    name: Uptime
+    id: uptime
+    entity_category: "diagnostic"
 
   - platform: bh1750
     name: "Ambient Light"
