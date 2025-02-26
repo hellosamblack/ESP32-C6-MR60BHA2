@@ -138,7 +138,6 @@ sensor:
 
   - platform: uptime
     name: Uptime
-    id: uptime
     entity_category: "diagnostic"
 
   - platform: bh1750
