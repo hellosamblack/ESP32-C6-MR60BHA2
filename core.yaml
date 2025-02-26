@@ -103,13 +103,19 @@ seeed_mr60bha2:
 
 binary_sensor:
   - platform: seeed_mr60bha2
-    filters:
-      -delayed_off: 60s
+    id: person_detected_raw
     has_target:
-      name: "Person Detected"
+      name: "Person Detected (Raw)"
       device_class: occupancy
 
-      
+  - platform: template
+    id: person_detected
+    name: "Person Detected"
+    device_class: occupancy
+    lambda: |-
+      return id(person_detected_raw).state;
+    filters:
+      -delayed_off: 60s
 
 sensor:
   - platform: wifi_signal # Reports the WiFi signal strength/RSSI in dB
