@@ -65,6 +65,24 @@ light:
     num_leds: 1
     rgb_order: GRB
     chipset: ws2812
+    effects:
+      - pulse:
+      - pulse:
+          name: "Fast Pulse"
+          transition_length: 0.5s
+          update_interval: 0.5s
+          min_brightness: 0%
+          max_brightness: 100%
+      - pulse:
+          name: "Slow Pulse"
+          transition_length: 500ms
+          update_interval: 2s
+      - pulse:
+          name: "Asymmetrical Pulse"
+          transition_length:
+            on_length: 1s
+            off_length: 500ms
+          update_interval: 1.5s
 
 i2c:
   sda: GPIO22
@@ -87,6 +105,10 @@ binary_sensor:
   - platform: seeed_mr60bha2
     has_target:
       name: "Person Detected"
+      device_class: occupancy
+      filters:
+        -delayed_off: 60s
+      
 
 sensor:
 
@@ -97,7 +119,7 @@ sensor:
     id: wifi_signal_db
     update_interval: 60s
     entity_category: "diagnostic"
-    internal: true
+    internal: false
 
   - platform: copy # Reports the WiFi signal strength in %
     source_id: wifi_signal_db
@@ -161,15 +183,7 @@ text_sensor:
     ip_address:
       name: ESP IP Address
       address_0:
-        name: ESP IP Address 0
-      address_1:
-        name: ESP IP Address 1
-      address_2:
-        name: ESP IP Address 2
-      address_3:
-        name: ESP IP Address 3
-      address_4:
-        name: ESP IP Address 4
+        name: ESP IP Address
     ssid:
       name: ESP Connected SSID
     bssid:
