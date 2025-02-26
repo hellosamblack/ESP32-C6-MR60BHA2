@@ -54,6 +54,14 @@ wifi:
   
 captive_portal:
 
+external_components:
+  - source:
+      type: git
+      url: https://github.com/limengdu/MR60BHA2_ESPHome_external_components
+      ref: main
+    components: [ seeed_mr60bha2 ]
+    refresh: 1m
+
 # For XIAO ESP32C6 Onboard LED
 # light:
 #   - platform: status_led
