@@ -260,6 +260,12 @@ text_sensor:
     reset_reason:
       name: "Reset Reason"
 
+  - platform: template
+    name: "Build Timestamp"
+    id: build_timestamp
+    lambda: |-
+      return {"2025-02-27T08:02:00Z"};
+
   - platform: version
     name: "ESPHome Version"
     id: esphome_version
