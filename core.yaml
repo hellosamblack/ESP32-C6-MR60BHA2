@@ -262,4 +262,10 @@ text_sensor:
 
   - platform: version
     name: "ESPHome Version"
+    id: esphome_version
     entity_category: "diagnostic"
+
+  - platform: copy # Reports the WiFi signal strength in %
+    source_id: esphome_version
+    id: esphome_version_copy
+    name: "WiFi Signal Strength"
