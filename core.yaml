@@ -3,9 +3,9 @@ esphome:
   friendly_name: $friendly_name
   name_add_mac_suffix: False
   #This doesn't seem to be surfaced anywhere in the UI
-  # project:
-  #   name: "2025-02-26-15:08 Name"
-  #   version: "2025-02-26-15:08 Version"
+  project:
+    name: "2025-02-27-08:24 Name"
+    version: "2025-02-27-08:24 Version"
   platformio_options:
     board_upload.maximum_size: 4194304
 
@@ -243,6 +243,34 @@ text_sensor:
     id: build_timestamp
     lambda: |-
       return {"2025-02-27T08:02:00Z"};
+
+  - platform: template
+    name: "ESPHome Project Version"
+    id: esphome_project_version_text_short
+    icon: "mdi:information-box"
+    entity_category: "diagnostic"
+    update_interval: 600s
+    lambda: |-
+      return { ESPHOME_PROJECT_VERSION };
+
+  - platform: template
+    name: "ESPHome Project Version Detailed"
+    id: esphome_project_version_text_detailed
+    icon: "mdi:information-box"
+    entity_category: "diagnostic"
+    update_interval: 600s
+    lambda: |-
+      return { ESPHOME_PROJECT_VERSION " " + App.get_compilation_time() };
+
+  - platform: template
+    name: "ESPHome Project Name"
+    id: esphome_project_name
+    icon: "mdi:information-box"
+    entity_category: "diagnostic"
+    update_interval: 600s
+    lambda: |-
+      return { ESPHOME_PROJECT_NAME };
+
 
   - platform: version
     name: "ESPHome Version"
