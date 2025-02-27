@@ -238,6 +238,24 @@ sensor:
       name: "Loop Time"
 
 text_sensor:
+  - platform: template
+    name: "Build Timestamp"
+    id: build_timestamp
+    lambda: |-
+      return {"2025-02-27T08:02:00Z"};
+
+  - platform: version
+    name: "ESPHome Version"
+    id: esphome_version
+    entity_category: "diagnostic"
+    internal: False
+
+  - platform: copy
+    source_id: esphome_version
+    id: esphome_version_copy
+    name: "ESPHome Version Copy"
+    internal: False
+
   - platform: wifi_info
     ip_address:
       name: ESP IP Address
@@ -259,21 +277,3 @@ text_sensor:
       name: "Device Info"
     reset_reason:
       name: "Reset Reason"
-
-  - platform: template
-    name: "Build Timestamp"
-    id: build_timestamp
-    lambda: |-
-      return {"2025-02-27T08:02:00Z"};
-
-  - platform: version
-    name: "ESPHome Version"
-    id: esphome_version
-    entity_category: "diagnostic"
-    internal: False
-
-  - platform: copy
-    source_id: esphome_version
-    id: esphome_version_copy
-    name: "ESPHome Version Copy"
-    internal: False
